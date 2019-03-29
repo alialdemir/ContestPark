@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        xmlns:prism="clr-namespace:Prism.Autofac;assembly=Prism.Autofac.Forms"
+                        x:Class="ContestPark.Mobile.ContestParkApp">
+    <prism:PrismApplication.Resources>
+        <ResourceDictionary>
+
+            <!--Colors-->
+            <Color x:Key="Yellow">#FFC200</Color>
+            <Color x:Key="Green">#017d46</Color>
+            <Color x:Key="Danger">#b71c1c</Color>
+            <Color x:Key="Red">#993232</Color>
+            <Color x:Key="Blue">#4080FF</Color>
+            <Color x:Key="Gray">#F1F0F0</Color>
+            <Color x:Key="DarkGray">#65686E</Color>
+            <Color x:Key="BackgroundColor">#eee</Color>
+            <!--Amber-->
+            <Color x:Key="Primary">#ffc107</Color>
+            <Color x:Key="Primary100">#FFECB3</Color>
+            <!--Koyu sarı -->
+            <Color x:Key="PrimaryDark">#ffa000</Color>
+            <!--Beyaz-->
+            <Color x:Key="PrimaryText">#212121</Color>
+            <!--Mavi-->
+            <Color x:Key="Accent">#536dfe</Color>
+            <!--BLACK-->
+            <Color x:Key="Black">#000000</Color>
+            <!--Beyaz-->
+            <Color x:Key="White">#FFFFFF</Color>
+            <!--Pembe-->
+            <Color x:Key="Pink">#F50057</Color>
+            <!-- Açık Pembe-->
+            <Color x:Key="LightPink">#FF80AB</Color>
+
+            <Style x:Key="ListView" TargetType="ListView">
+                <Setter Property="ItemsSource" Value="{Binding Items}" />
+                <Setter Property="RefreshCommand" Value="{Binding RefleshCommand}" />
+                <Setter Property="IsRefreshing" Value="{Binding IsBusy, Mode=OneWay}" />
+                <Setter Property="IsPullToRefreshEnabled" Value="True" />
+                <Setter Property="SeparatorVisibility" Value="None" />
+                <Setter Property="HasUnevenRows" Value="True" />
+            </Style>
+
+            <Style x:Key="ListViewHeaderAndFooter" TargetType="ListView" BasedOn="{StaticResource ListView}">
+                <Setter Property="Footer" Value=" " />
+                <Setter Property="Header" Value=" " />
+            </Style>
+
+            <Style x:Key="ListViewOnlyFooter" TargetType="ListView" BasedOn="{StaticResource ListView}">
+                <Setter Property="Footer" Value=" " />
+            </Style>
+
+            <Style x:Key="ZigZag" TargetType="Image">
+                <Setter Property="Source" Value="zigzag.png" />
+                <Setter Property="Aspect" Value="Fill" />
+            </Style>
+            <Style x:Key="Line" TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="1" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="BackgroundColor" Value="#dedede" />
+            </Style>
+
+            <Style x:Key="EmptyModel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource Black}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource White}" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+            </Style>
+            <Style x:Key="LstUserFullName" TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="LineBreakMode" Value="TailTruncation" />
+                <Setter Property="VerticalOptions" Value="StartAndExpand" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+            <Style x:Key="LstMessage" TargetType="Label">
+                <Setter Property="TextColor" Value="#666" />
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="LineBreakMode" Value="TailTruncation" />
+                <Setter Property="VerticalOptions" Value="EndAndExpand" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+            <Style x:Key="LstDate" TargetType="Label">
+                <Setter Property="TextColor" Value="#666" />
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="HorizontalOptions" Value="EndAndExpand" />
+            </Style>
+            <Style x:Key="ContentParkLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="25"></Setter>
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+            </Style>
+            <Style x:Key="Button" TargetType="Button">
+                <Setter Property="TextColor" Value="{StaticResource White}"></Setter>
+                <Setter Property="FontSize" Value="Medium"></Setter>
+                <Setter Property="BorderRadius" Value="2"></Setter>
+                <Setter Property="HeightRequest" Value="36"></Setter>
+            </Style>
+            <Style x:Key="DangerButton" TargetType="Button" BasedOn="{StaticResource Button}">
+                <Setter Property="BackgroundColor" Value="#b71c1c"></Setter>
+            </Style>
+            <Style x:Key="FacebookButton" TargetType="Button" BasedOn="{StaticResource Button}">
+                <Setter Property="BackgroundColor" Value="#3b5999"></Setter>
+                <Setter Property="Image" Value="facebook24x.png"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </prism:PrismApplication.Resources>
+</prism:PrismApplication>

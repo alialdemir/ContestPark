@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:ContestPark.Mobile;assembly=ContestPark.Mobile"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ContestPark.Mobile.Views.SignInPage"
+             BackgroundColor="{StaticResource Primary}">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <StackLayout Padding="10,0,10,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="4*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Row="0" Grid.ColumnSpan="2" Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" />
+                        <Label Grid.Row="1" Grid.Column="0" Text="Contest" Style="{StaticResource ContentParkLabel}" TextColor="White" XAlign="End" />
+                        <Label Grid.Row="1" Grid.Column="1" Text="Park" Style="{StaticResource ContentParkLabel}" TextColor="Black" XAlign="Start" />
+                        <Entry Grid.Row="2" Grid.ColumnSpan="2" x:Name="txtUserName" AutomationId="txtUserName" TextColor="#fff" PlaceholderColor="#fff" Text="{Binding LoginModel.UserName}" Placeholder="{i18n:Translate UserName}" />
+                        <Entry Grid.Row="3" Grid.ColumnSpan="2" x:Name="txtPassword" AutomationId="txtPassword" TextColor="#fff" PlaceholderColor="#fff" Text="{Binding LoginModel.Password}" Placeholder="{i18n:Translate Password}" IsPassword="True" />
+                        <Button Grid.Row="4" Grid.ColumnSpan="2" Text="{i18n:Translate SignIn}" AutomationId="SignIn" Style="{StaticResource DangerButton}" Command="{Binding LoginCommand}" />
+                        <Button Grid.Row="5" Grid.Column="0" Text="{i18n:Translate SignUp}" AutomationId="SignUp" FontSize="Small" TextColor="#b71c1c" FontAttributes="Bold" BackgroundColor="Transparent" Command="{Binding SignUpCommand}" />
+                        <Button Grid.Row="5" Grid.Column="1" Text="{i18n:Translate ForgotYourPassword}" AutomationId="ForgotYourPassword" FontSize="Small" TextColor="#b71c1c" FontAttributes="Bold" BackgroundColor="Transparent" Command="{Binding ForgetYourPasswordCommand}" />
+                        <Button Grid.Row="6" Grid.ColumnSpan="2" Text="{i18n:Translate LoginWithFacebook}" Style="{StaticResource FacebookButton}" Command="{Binding FacebookWithLoginCommand}" AutomationId="LoginWithFacebook" />
+                    </Grid>
+                </StackLayout>
+                <!-- INDICATOR -->
+                <ActivityIndicator  Color="{StaticResource Primary}"
+                                    IsRunning="{Binding IsBusy}"
+                                    IsVisible="{Binding IsBusy}"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center" WidthRequest="100" />
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Components="clr-namespace:ContestPark.Mobile.Components;assembly=ContestPark.Mobile"
+             xmlns:Converter="clr-namespace:ContestPark.Mobile.Converters;assembly=ContestPark.Mobile"
+             xmlns:i18n="clr-namespace:ContestPark.Mobile;assembly=ContestPark.Mobile"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ContestPark.Mobile.Views.UserChatListPage"
+             x:Name="page"
+             Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="ic_search_black_36dp.png" Command="{Binding SearchCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converter:NegativeBooleanConverter x:Key="not" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Components:NonPersistentSelectedItemListView x:Name="lstView" InfiniteScroll="{Binding InfiniteScroll}" Style="{StaticResource ListViewHeaderAndFooter}">
+            <Components:NonPersistentSelectedItemListView.Header>
+                <StackLayout Orientation="Vertical" Spacing="0" BackgroundColor="{StaticResource White}">
+                    <Components:CustomSegmentedControl x:Name="SegControl"
+                                                       IsSelectedCheck="False"
+                                                       Margin="10,10,10,0"
+                                                       TintColor="{StaticResource PrimaryText}"
+                                                       ValueChangedCommand="{Binding Path=BindingContext.SegmentValueChangedCommand, Source={x:Reference page}}">
+                        <Components:CustomSegmentedControl.Children>
+                            <Components:SegmentedControlOption Text="{i18n:Translate OtherUsers}" />
+                            <Components:SegmentedControlOption Text="{i18n:Translate Following}" />
+                        </Components:CustomSegmentedControl.Children>
+                    </Components:CustomSegmentedControl>
+                    <SearchBar Placeholder="{i18n:Translate SearchPeople}" AutomationId="SearchBar" IsVisible="{Binding IsVisibleSearch}" Text="{Binding Search}" BackgroundColor="White" TextColor="#FF5B00"  Margin="10,10,10,10" />
+                    <Image Source="zigzag.png" Aspect="Fill" />
+                </StackLayout>
+            </Components:NonPersistentSelectedItemListView.Header>
+            <Components:NonPersistentSelectedItemListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Components:ListItemView Source="{Binding ProfilePicturePath}"
+                                                 AutomationId="LstItemView"
+                                                 Text="{Binding FullName}"
+                                                 Detail="{Binding UserName,StringFormat='@{0}'}"
+                                                 UserName="{Binding UserName}"
+                                                 CommandParameter="{Binding .}"
+                                                 SingleTap="{Binding Path=BindingContext.GoToChatDetailsPageCommand, Source={x:Reference page}}"
+                                                 GotoProfilePageCommand="{Binding Path=BindingContext.GotoProfilePageCommand, Source={x:Reference page}}" />
+                    </ViewCell>
+                </DataTemplate>
+            </Components:NonPersistentSelectedItemListView.ItemTemplate>
+            <Components:NonPersistentSelectedItemListView.FooterTemplate>
+                <DataTemplate>
+                    <Image Source="zigzag.png" Aspect="Fill" IsVisible="{Binding Source={x:Reference lstView}, Path=IsRefreshing, Converter={StaticResource not}}" />
+                </DataTemplate>
+            </Components:NonPersistentSelectedItemListView.FooterTemplate>
+        </Components:NonPersistentSelectedItemListView>
+    </ContentPage.Content>
+</ContentPage>

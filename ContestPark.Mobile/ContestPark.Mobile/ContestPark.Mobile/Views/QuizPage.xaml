@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages"
+                 prism:ViewModelLocator.AutowireViewModel="True"
+                 x:Class="ContestPark.Mobile.Views.QuizPage"
+                 BackgroundColor="{StaticResource Black}">
+    <pages:PopupPage.Content>
+        <Label Text="sorularrrrrrrrrrrrrrrrrrrrrrrrr" VerticalOptions="Center" HorizontalOptions="Center" TextColor="White" />
+    </pages:PopupPage.Content>
+</pages:PopupPage>

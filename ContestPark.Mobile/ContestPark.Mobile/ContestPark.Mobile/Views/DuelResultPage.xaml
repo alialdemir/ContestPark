@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Components="clr-namespace:ContestPark.Mobile.Components;assembly=ContestPark.Mobile"
+             xmlns:Converter="clr-namespace:ContestPark.Mobile.Converters;assembly=ContestPark.Mobile"
+             xmlns:i18n="clr-namespace:ContestPark.Mobile;assembly=ContestPark.Mobile"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ContestPark.Mobile.Views.DuelResultPage"
+             BackgroundColor="{StaticResource Black}"
+             x:Name="page">
+    <!--xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converter:ImageSourceConterter x:Key="sourceConverter" />
+            <Converter:DuelResultButtonsHideConverter x:Key="hideButtons" />
+            <Converter:NegativeBooleanConverter x:Key="not" />
+            <Converter:RankConverter x:Key="rank" />
+            <Converter:RankBackgroundColorConverter x:Key="background" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Grid BackgroundColor="{StaticResource Yellow}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="56" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="0" Grid.Column="0" Source="ic_arrow_back_black_24dp.png">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Path=GotoBackPageCommand, Source={x:Reference page}}" />
+                        </Label.GestureRecognizers>
+                    </Image>
+                    <Label Grid.Row="0" Grid.Column="1" Text="{i18n:Translate DuelResult}" TextColor="{StaticResource Black}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Path=ChangeListTypeCommand, Source={x:Reference page}}" CommandParameter="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <BoxView Grid.Row="0" Grid.Column="1" x:Name="boxOtherUser" Margin="0,0,0,10" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Color="{StaticResource Black}" />
+                    <Label Grid.Row="0" Grid.Column="2" Text="{i18n:Translate Questions}" TextColor="{StaticResource Black}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Path=ChangeListTypeCommand, Source={x:Reference page}}" CommandParameter="2" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <BoxView Grid.Row="0" Grid.Column="2" x:Name="boxFollowing" Margin="0,0,0,10" HeightRequest="1" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Color="{StaticResource Black}" IsVisible="False" />
+                </Grid>
+                <Grid x:Name="gridDuelResult" Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="100" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.ColumnSpan="3" Text="{Binding WinnerFullName}" HorizontalTextAlignment="Center" TextColor="White" FontSize="20" FontAttributes="Bold" />
+                    <!--Founder-->
+                    <Components:CircleImage Grid.Row="1"
+                                            Grid.Column="0"
+                                            WidthRequest="100"
+                                            HeightRequest="100"
+                                            BorderColor="{Binding FounderColor}"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Source="{Binding Items.FounderProfilePicturePath, Converter={StaticResource sourceConverter}}"
+                                            Command="{Binding Path=GotoProfilePageCommand}" />
+                    <Label Grid.Row="2" Grid.Column="0" Text="{Binding Items.FounderFullName}" HorizontalTextAlignment="Center" TextColor="{Binding FounderColor}" FontSize="20" FontAttributes="Bold" />
+                    <Label Grid.Row="3" Grid.Column="0" Text="{Binding Items.FounderScorePoint}" HorizontalTextAlignment="Center"  TextColor="{Binding FounderColor}" FontSize="20" FontAttributes="Bold" />
+                    <!--Center-->
+                    <Label Grid.Row="1" Grid.Column="1" Text="{i18n:Translate Bet}" Margin="0,40,0,0" VerticalOptions="Start" HorizontalTextAlignment="Center" TextColor="{StaticResource Yellow}" FontSize="20" FontAttributes="Bold" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Items.Bet}" VerticalOptions="End" HorizontalTextAlignment="Center" TextColor="{StaticResource Yellow}" FontSize="20" FontAttributes="Bold" />
+                    <!--Competitor-->
+                    <Components:CircleImage Grid.Row="1"
+                                            Grid.Column="2"
+                                            WidthRequest="100"
+                                            HeightRequest="100"
+                                            BorderColor="{Binding CompetitorColor}"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Source="{Binding Items.CompetitorProfilePicturePath, Converter={StaticResource sourceConverter}}"
+                                            Command="{Binding Path=GotoProfilePageCommand}" />
+                    <Label Grid.Row="2" Grid.Column="2" Text="{Binding Items.CompetitorFullName}" HorizontalTextAlignment="Center" TextColor="{Binding CompetitorColor}" FontSize="20" FontAttributes="Bold" />
+                    <Label Grid.Row="3" Grid.Column="2" Text="{Binding Items.CompetitorScorePoint}" HorizontalTextAlignment="Center"  TextColor="{Binding CompetitorColor}" FontSize="20" FontAttributes="Bold" />
+                    <!--Buttons-->
+                    <Button Grid.Row="4" Grid.Column="0" Text="{i18n:Translate Revenge}" Command="{Binding RevengeCommand}" Image="replay.png" HeightRequest="50" FontAttributes="Bold" BackgroundColor="#F2F5ED" TextColor="{StaticResource Yellow}"
+                    IsVisible="{Binding Items.CompetitorUserName ,Converter={StaticResource hideButtons}, ConverterParameter={Binding Items.FounderUserName}}" />
+                    <Button Grid.Row="4" Grid.Column="1" Text="{i18n:Translate Chat}" Command="{Binding ChatCommand}" Image="ic_forum_black_24dp.png" HeightRequest="50" FontAttributes="Bold" BackgroundColor="#F2F5ED" TextColor="{StaticResource Black}"
+                    IsVisible="{Binding Items.CompetitorUserName ,Converter={StaticResource hideButtons}, ConverterParameter={Binding Items.FounderUserName}}" />
+                    <Button Grid.Row="4" Grid.Column="2" Text="{i18n:Translate OtherOpponent}" Command="{Binding OtherOpponenteCommand}" Image="star.png" HeightRequest="50" FontAttributes="Bold" BackgroundColor="#F2F5ED" TextColor="#FF5B00"
+                    IsVisible="{Binding Items.CompetitorUserName ,Converter={StaticResource hideButtons}, ConverterParameter={Binding Items.FounderUserName}}" />
+                    <!--Sıralama-->
+                    <Components:NonPersistentSelectedItemListView
+                Grid.Row="5"
+                Grid.ColumnSpan="3"
+                      x:Name="lstView"
+                      ItemsSource="{Binding DuelResultRankingModel.ScoreRankings}"
+                      HasUnevenRows="true"
+                      Header=" "
+                      IsPullToRefreshEnabled="false"
+                      Style="{StaticResource ListView}">
+                        <Components:NonPersistentSelectedItemListView.HeaderTemplate>
+                            <DataTemplate>
+                                <Grid BackgroundColor="{StaticResource White}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40" />
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="40" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" Text="{i18n:Translate Rank}" TextColor="{StaticResource Black}" VerticalOptions="Center" Margin="16,0,0,0" />
+                                    <Label Grid.Row="0" Grid.Column="2" Text="{i18n:Translate Name}" TextColor="{StaticResource Black}" VerticalOptions="Center" />
+                                    <Label Grid.Row="0" Grid.Column="3" Text="{i18n:Translate Score}" TextColor="{StaticResource Black}" VerticalOptions="Center" />
+                                    <Image Grid.Row="1" Grid.ColumnSpan="4" Source="zigzag.png" Aspect="Fill" />
+                                </Grid>
+                            </DataTemplate>
+                        </Components:NonPersistentSelectedItemListView.HeaderTemplate>
+                        <Components:NonPersistentSelectedItemListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Components:RankView Rank="{Binding .,Converter={StaticResource rank}, ConverterParameter={x:Reference lstView}}"
+                                            BackgroundColor="{Binding .,Converter={StaticResource background}, ConverterParameter={x:Reference lstView}}" />
+                                </ViewCell>
+                            </DataTemplate>
+                        </Components:NonPersistentSelectedItemListView.ItemTemplate>
+                    </Components:NonPersistentSelectedItemListView>
+                </Grid>
+
+                <!--<controls:CarouselViewControl x:Name="cvcQuestions"
+                                          ItemsSource="{Binding Items}"
+                                          IsVisible="False"
+                                          Orientation="Horizontal"
+                                          InterPageSpacing="10"
+                                          Position="0"
+                                          VerticalOptions="FillAndExpand"
+                                          HorizontalOptions="FillAndExpand">
+                <controls:CarouselViewControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <image:CircleImage
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Aspect="Fill"
+                    Source="{Binding Path= Items.FounderProfilePicturePath, Source={x:Reference page}, Converter={StaticResource sourceConverter}}"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    BorderColor="{Binding FounderColor}"
+                    HorizontalOptions="CenterAndExpand"
+                    BorderThickness="2">
+                                <image:CircleImage.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GotoProfilePageCommand}" />
+                                </image:CircleImage.GestureRecognizers>
+                            </image:CircleImage>
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Path=Items.FounderFullName, Source={x:Reference page}}" VerticalOptions="Start" HorizontalTextAlignment="Center" TextColor="{Binding Path=FounderColor, Source={x:Reference page}}" FontSize="20" FontAttributes="Bold" />
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Path=Items.FounderScorePoint, Source={x:Reference page}}" VerticalOptions="End" HorizontalTextAlignment="Center"  TextColor="{Binding Path=FounderColor, Source={x:Reference page}}" FontSize="20" FontAttributes="Bold" />
+                        </Grid>
+                    </DataTemplate>
+                </controls:CarouselViewControl.ItemTemplate>
+            </controls:CarouselViewControl>-->
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

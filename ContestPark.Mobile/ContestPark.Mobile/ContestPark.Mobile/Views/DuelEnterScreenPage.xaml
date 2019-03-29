@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:i18n="clr-namespace:ContestPark.Mobile;assembly=ContestPark.Mobile"
+                 xmlns:Components="clr-namespace:ContestPark.Mobile.Components;assembly=ContestPark.Mobile"
+                 xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                 xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+                 xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages"
+                 prism:ViewModelLocator.AutowireViewModel="True"
+                 x:Class="ContestPark.Mobile.Views.DuelEnterScreenPage"
+                 x:Name="page"
+                 BackgroundColor="{StaticResource Primary}">
+    <!--<pages:PopupPage.Animation>
+    <animations:ScaleAnimation
+  PositionIn="Bottom"
+  PositionOut="Center"
+  ScaleIn="1"
+  ScaleOut="0.7"
+  DurationIn="700"
+  EasingIn="BounceOut" />
+  </pages:PopupPage.Animation>-->
+    <pages:PopupPage.Content>
+        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource Black}" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="49*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="49*" />
+            </Grid.RowDefinitions>
+            <!-- Founder -->
+            <Grid x:Name="gridFounder"  VerticalOptions="FillAndExpand">
+                <Image Grid.Row="0"
+             Source="{Binding DuelScreen.FounderCoverPicturePath}"
+             Aspect="AspectFill"
+             VerticalOptions="FillAndExpand"
+               Opacity="0.5" />
+                <StackLayout Grid.Row="0"
+                     Orientation="Horizontal"
+                     VerticalOptions="FillAndExpand"
+                     HeightRequest="55"
+                     WidthRequest="55">
+                    <Components:CircleImage VerticalOptions="Center"
+                                            Margin="20,0,0,0"
+                                            Source="{Binding DuelScreen.FounderProfilePicturePath}" />
+                    <Label Text="{Binding DuelScreen.FounderFullName}"
+                 FontAttributes="Bold"
+                 TextColor="{StaticResource White}"
+                 HorizontalOptions="Start"
+                 VerticalOptions="Center" />
+                </StackLayout>
+            </Grid>
+            <!-- Line -->
+            <BoxView Grid.Row="1" BackgroundColor="{StaticResource Primary}" />
+            <!-- Competitor -->
+            <Grid Grid.Row="2" x:Name="gridCompetitor"  VerticalOptions="FillAndExpand">
+                <Image Grid.Row="0"
+               Source="{Binding DuelScreen.CompetitorCoverPicturePath}"
+               Aspect="AspectFill"
+               VerticalOptions="FillAndExpand"
+                  Opacity="0.5" />
+                <StackLayout Grid.Row="0"
+                     Orientation="Horizontal"
+                     VerticalOptions="FillAndExpand"
+                     HeightRequest="55"
+                     WidthRequest="55">
+                    <Components:CircleImage VerticalOptions="Center"
+                                            Margin="20,0,0,0"
+                                            Source="{Binding DuelScreen.CompetitorProfilePicturePath}" />
+                    <Label Text="{Binding DuelScreen.CompetitorFullName}"
+                 FontAttributes="Bold"
+                 TextColor="{StaticResource White}"
+                 HorizontalOptions="Start"
+                 VerticalOptions="Center" />
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </pages:PopupPage.Content>
+</pages:PopupPage>

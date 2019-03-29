@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:ContestPark.Mobile;assembly=ContestPark.Mobile"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ContestPark.Mobile.Views.AccountSettingsPage"
+             Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{i18n:Translate Save}" Command="{Binding SaveCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="0" BackgroundColor="{StaticResource White}">
+                <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Padding="20,10,0,10" Spacing="20">
+                    <Label Text="{i18n:Translate PictureSettings}" FontSize="Default" FontAttributes="Bold" VerticalOptions="Center" TextColor="{StaticResource PrimaryText}" />
+                </StackLayout>
+                <BoxView Style="{StaticResource Line}" />
+                <StackLayout Orientation="Vertical" VerticalOptions="Fill" BackgroundColor="#fff">
+                    <StackLayout Orientation="Horizontal" Padding="10,0,10,0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ChangeProfilePictureCommand}" />
+                        </StackLayout.GestureRecognizers>
+                        <Image Source="{Binding UserInfo.UserProfilePicturePath}" HeightRequest="40" WidthRequest="40" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
+                        <Label Text="{i18n:Translate ProfilePictureChange}" Margin="10,0,0,0" FontSize="16" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Padding="10,0,10,0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ChangeCoverPictureCommand}" />
+                        </StackLayout.GestureRecognizers>
+                        <Image Source="{Binding UserCoverPicturePath}" HeightRequest="40" WidthRequest="40" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" />
+                        <Label Text="{i18n:Translate CoverPictureChange}" Margin="10,0,0,0" FontSize="16" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" />
+                    </StackLayout>
+                    <Image Source="zigzag.png" Aspect="Fill" />
+                </StackLayout>
+
+                <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Padding="20,10,0,10" Spacing="20">
+                    <Label Text="{i18n:Translate UserSettings}" FontAttributes="Bold" VerticalOptions="Center" TextColor="{StaticResource PrimaryText}" />
+                </StackLayout>
+                <BoxView Style="{StaticResource Line}" />
+                <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Padding="20,10,0,10" Spacing="20">
+                    <Image Source="ic_contact_mail_black_18dp.png" WidthRequest="27" HeightRequest="27" VerticalOptions="Center" />
+                    <Entry Text="{Binding UserInfo.FullName}" Placeholder="{i18n:Translate FullName}" TextColor="Black"  HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Padding="20,10,0,10" Spacing="20">
+                    <Image Source="ic_email_black_18dp.png" WidthRequest="27" HeightRequest="27" VerticalOptions="Center" />
+                    <Entry Text="{Binding UserInfo.Email}" Placeholder="{i18n:Translate Email}" TextColor="Black"  HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Padding="20,10,0,10" Spacing="20">
+                    <Image Source="ic_person_black_24dp.png" WidthRequest="27" HeightRequest="27" VerticalOptions="Center" />
+                    <Entry Text="{Binding UserInfo.UserName}" Placeholder="{i18n:Translate UserName}" TextColor="Black"  HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                <Image Source="zigzag.png" Aspect="Fill" />
+
+                <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Padding="20,10,0,10" Spacing="20">
+                    <Label Text="{i18n:Translate ChangePassword}" FontAttributes="Bold" VerticalOptions="Center" TextColor="{StaticResource PrimaryText}" />
+                </StackLayout>
+                <BoxView Style="{StaticResource Line}" />
+                <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Padding="20,10,0,10" Spacing="20">
+                    <Image Source="ic_https_black_36dp.png" WidthRequest="27" HeightRequest="27" VerticalOptions="Center" />
+                    <Entry Text="{Binding UserInfo.OldPassword}" Placeholder="{i18n:Translate OldPassword}" IsPassword="True" TextColor="Black"  HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Padding="20,10,0,10" Spacing="20">
+                    <Image Source="ic_lock_open_black_18dp.png" WidthRequest="27" HeightRequest="27" VerticalOptions="Center" />
+                    <Entry Text="{Binding UserInfo.Password}" Placeholder="{i18n:Translate NewPassword}" IsPassword="True" TextColor="Black"  HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                <Image Source="zigzag.png" Aspect="Fill" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

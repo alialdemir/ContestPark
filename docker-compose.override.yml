@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  contestpark.webapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionString=Data Source=mssql04.turhost.com;Initial Catalog=ContestParkTestDb;MultipleActiveResultSets=true;Persist Security Info=True;User ID=alivelideli;Password=Fsw4y42*
+      - Redis=duel.data
+    ports:
+      - "5003:80"
+
+  duel.data:
+    ports:
+      - "6379:6379"

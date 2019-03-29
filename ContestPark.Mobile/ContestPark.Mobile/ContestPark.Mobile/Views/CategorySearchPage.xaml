@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Components="clr-namespace:ContestPark.Mobile.Components;assembly=ContestPark.Mobile"
+             xmlns:Converter="clr-namespace:ContestPark.Mobile.Converters;assembly=ContestPark.Mobile"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ContestPark.Mobile.Views.CategorySearchPage"
+             x:Name="page"
+             Title="{Binding Title}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converter:NegativeBooleanConverter x:Key="not" />
+            <Converter:CategorySearchGoldConverter x:Key="gold" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Components:NonPersistentSelectedItemListView
+                                            AutomationId="lstSearchCategories"
+                                            x:Name="lstSearchCategories"
+                                            InfiniteScroll="{Binding InfiniteScroll}"
+                                            Style="{StaticResource ListViewOnlyFooter}">
+            <Components:NonPersistentSelectedItemListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#fff" Padding="10,10,10,10">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Path=BindingContext.PushEnterPageCommand, Source={x:Reference page}}" CommandParameter="{Binding SubCategoryId}" />
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="{Binding PicturePath}" HeightRequest="60" WidthRequest="60" />
+                            <StackLayout  VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+                                <Label Text="{Binding SubCategoryName}" Style="{StaticResource LstUserFullName}" />
+                                <Label Text="{Binding CategoryName}" LineBreakMode="WordWrap" Style="{StaticResource LstMessage}" />
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand" Spacing="0" IsVisible="{Binding Price,Converter={StaticResource gold}}">
+                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                                    <Label Text="{Binding Price}" Style="{StaticResource LstDate}" TextColor="#01A8F7" VerticalOptions="CenterAndExpand" />
+                                    <Image Source="coins.png" HeightRequest="25" WidthRequest="25" VerticalOptions="CenterAndExpand" />
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </Components:NonPersistentSelectedItemListView.ItemTemplate>
+            <Components:NonPersistentSelectedItemListView.FooterTemplate>
+                <DataTemplate>
+                    <Image Source="zigzag.png" Aspect="Fill" IsVisible="{Binding Source={x:Reference lstSearchCategories}, Path=IsRefreshing, Converter={StaticResource not}}" />
+                </DataTemplate>
+            </Components:NonPersistentSelectedItemListView.FooterTemplate>
+        </Components:NonPersistentSelectedItemListView>
+    </ContentPage.Content>
+</ContentPage>

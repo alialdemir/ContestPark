@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Components="clr-namespace:ContestPark.Mobile.Components;assembly=ContestPark.Mobile"
+             xmlns:Converter="clr-namespace:ContestPark.Mobile.Converters;assembly=ContestPark.Mobile"
+             x:Class="ContestPark.Mobile.Components.ImagePostCard"
+             x:Name="page">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Converter:DateTimeMomentConverter x:Key="moment" />
+            <Converter:ImageSourceConterter x:Key="sourceConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid Padding="8" RowSpacing="0" ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="0.5" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Components:CircleImage Grid.Row="0"
+                                    Grid.Column="0"
+                                    Source="{Binding FounderProfilePicturePath}"
+                                    Command="{Binding Path=GotoProfilePageCommand, Source={x:Reference page}}"
+                                    CommandParameter="{Binding FounderUserName}" />
+            <Label Grid.Row="0" Grid.Column="1" Text="{Binding FounderFullName}" FontAttributes="Bold" TextColor="{StaticResource Black}" />
+            <Label Grid.Row="0"
+                   Grid.Column="1"
+                   Text="{Binding Date, Converter={StaticResource moment}}"
+                   HorizontalTextAlignment="End"
+                   TextColor="#c5c5c5" />
+            <Components:HtmlLabel Grid.Row="0"
+                                  Grid.Column="1"
+                                  TextColor="{StaticResource Black}"
+                                  Text="{Binding PostsDescription}"
+                                  FontSize="Default"
+                                  LineBreakMode="WordWrap"
+                                  VerticalOptions="End" />
+            <BoxView Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource Line}" />
+            <Image Grid.Row="2" Grid.ColumnSpan="2" Source="{Binding AlternativePicturePath}" Aspect="AspectFit">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Path=GotoPhotoModalCommand, Source={x:Reference page}}" />
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

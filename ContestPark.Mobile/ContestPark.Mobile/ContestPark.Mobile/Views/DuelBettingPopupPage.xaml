@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:i18n="clr-namespace:ContestPark.Mobile;assembly=ContestPark.Mobile"
+                 xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages"
+                 prism:ViewModelLocator.AutowireViewModel="True"
+                 x:Class="ContestPark.Mobile.Views.DuelBettingPopupPage"
+              x:Name="page">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+      PositionIn="Bottom"
+      PositionOut="Center"
+      ScaleIn="1"
+      ScaleOut="0.7"
+      DurationIn="700"
+      EasingIn="BounceOut" />
+    </pages:PopupPage.Animation>
+    <ScrollView HorizontalOptions="Center" VerticalOptions="Center">
+        <AbsoluteLayout>
+            <StackLayout IsClippedToBounds="True" BackgroundColor="White" Spacing="3" Orientation="Vertical" WidthRequest="350" HeightRequest="140">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.ColumnSpan="3" Text="{i18n:Translate Bet}" TextColor="{StaticResource Black}" />
+                    <Button Grid.Row="1" Grid.Column="0" Image="left_arrow.png" HeightRequest="40" FontAttributes="Bold" BackgroundColor="Transparent" Command="{Binding IncreaseBetCommand}" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Path=BindingContext.UserCp,StringFormat='{0:N0}', Source={x:Reference page}}" TextColor="{StaticResource Black}" FontAttributes="Bold" HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                    <Button Grid.Row="1" Grid.Column="2" Image="right_arrow.png" HeightRequest="40" FontAttributes="Bold" BackgroundColor="Transparent" Command="{Binding ExecuteReduceBetCommand}" />
+                </Grid>
+                <Grid HorizontalOptions="End">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="80" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="0" Grid.Column="0" Text="{i18n:Translate Cancel}" HeightRequest="40" WidthRequest="80" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="{StaticResource Red}" Clicked="OnClose" />
+                    <Button Grid.Row="0" Grid.Column="1" Text="{i18n:Translate Okay}" HeightRequest="40" WidthRequest="80" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="{StaticResource Blue}" Command="{Binding DuelStartCommand}" />
+                </Grid>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ScrollView>
+</pages:PopupPage>

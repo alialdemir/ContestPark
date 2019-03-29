@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ContestPark.Mobile.Views.MasterPage"
+             x:Name="page"
+             Title="ContestPark">
+    <ContentPage.Content>
+        <ListView
+              HasUnevenRows="true"
+              SeparatorColor="#dedede"
+              IsGroupingEnabled="true"
+              ItemsSource="{Binding Items}">
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Padding="20,10,0,10" Spacing="20">
+                            <Label Text="{Binding Heading}" FontSize="Default" FontAttributes="Bold" VerticalOptions="Center" TextColor="{StaticResource PrimaryText}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+            <ListView.Header>
+                <Grid  RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="10" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="10" />
+                    </Grid.RowDefinitions>
+                    <Image Aspect="AspectFill" Grid.ColumnSpan="3" Grid.RowSpan="4" Margin="0" Source="{Binding CoverPicture}" />
+                    <Label Grid.Column="1" Grid.Row="2" Text="{Binding FullName}" TextColor="{StaticResource White}" />
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Padding="20,10,0,10" Spacing="20">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Path=BindingContext.PushPageCommand, Source={x:Reference page}}" CommandParameter="{Binding PageName}" />
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="{Binding Icon}" WidthRequest="27" HeightRequest="27" VerticalOptions="Center" />
+                            <Label Text="{Binding Title}" FontSize="Default" VerticalOptions="Center" TextColor="Black" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

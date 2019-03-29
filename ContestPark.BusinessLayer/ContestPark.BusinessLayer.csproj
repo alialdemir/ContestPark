@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentFTP" Version="19.1.1" />
+    <PackageReference Include="MailKit" Version="1.18.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ContestPark.DataAccessLayer\ContestPark.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\ContestPark.Entities\ContestPark.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

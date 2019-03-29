@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.6.2" />
+    <PackageReference Include="CarouselView.FormsPlugin" Version="4.4.6" />
+    <PackageReference Include="FAB.Forms" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNet.SignalR.Client" Version="2.2.2" />
+    <PackageReference Include="Microsoft.Azure.Mobile.Analytics" Version="0.17.1" />
+    <PackageReference Include="Microsoft.Azure.Mobile.Crashes" Version="0.17.1" />
+    <PackageReference Include="modernhttpclient" Version="2.4.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="Plugin.Badge" Version="1.2.1" />
+    <PackageReference Include="Plugin.Share" Version="7.0.1" />
+    <PackageReference Include="Prism.Autofac.Forms" Version="6.3.0" />
+    <PackageReference Include="Prism.Core" Version="6.3.0" />
+    <PackageReference Include="Prism.Forms" Version="6.3.0" />
+    <PackageReference Include="Prism.Plugin.Popups.Autofac" Version="1.1.0" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.0.4" />
+    <PackageReference Include="SQLite.Net-PCL" Version="3.1.1" />
+    <PackageReference Include="SQLite.Net.Core-PCL" Version="3.1.1" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.2.20" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.2.20" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.2.20" />
+  <PackageReference Include="Xamarin.Forms" Version="2.4.0.74863" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\ContestPark.Entities\ContestPark.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="AppResources\ContestParkResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ContestParkResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="AppResources\ContestParkResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ContestParkResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="AppResources\ContestParkResources.tr-TR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

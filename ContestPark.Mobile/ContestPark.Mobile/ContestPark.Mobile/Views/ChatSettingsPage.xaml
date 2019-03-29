@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Components="clr-namespace:ContestPark.Mobile.Components;assembly=ContestPark.Mobile"
+             xmlns:Converter="clr-namespace:ContestPark.Mobile.Converters;assembly=ContestPark.Mobile"
+             xmlns:i18n="clr-namespace:ContestPark.Mobile;assembly=ContestPark.Mobile"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ContestPark.Mobile.Views.ChatSettingsPage"
+             x:Name="page"
+             Title="{Binding Title}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converter:NegativeBooleanConverter x:Key="not" />
+            <Converter:DateTimeMomentConverter x:Key="moment" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Components:NonPersistentSelectedItemListView
+                                      x:Name="lstView"
+                                      InfiniteScroll="{Binding InfiniteScroll}"
+                                      SeparatorColor="#dedede"
+                                      SeparatorVisibility="Default"
+                                      Style="{StaticResource ListViewHeaderAndFooter}"
+                                      IsShowEmptyMessage="{Binding IsShowEmptyMessage}">
+            <Components:NonPersistentSelectedItemListView.HeaderTemplate>
+                <DataTemplate>
+                    <StackLayout Spacing="0" BackgroundColor="{StaticResource White}">
+                        <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Padding="20,10,0,10" Spacing="20">
+                            <Label Text="{i18n:Translate BlockUsersList}" FontAttributes="Bold" VerticalOptions="Center" TextColor="{StaticResource PrimaryText}" />
+                        </StackLayout>
+                        <BoxView Style="{StaticResource Line}" />
+                    </StackLayout>
+                </DataTemplate>
+            </Components:NonPersistentSelectedItemListView.HeaderTemplate>
+            <Components:NonPersistentSelectedItemListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Padding="20,10,0,10" Spacing="5" BackgroundColor="{StaticResource White}">
+                            <Label Text="{Binding FullName}" FontSize="Default" VerticalOptions="Center" TextColor="Black" />
+                            <Label Text="{Binding BlockDate,Converter={StaticResource moment}}" FontSize="Default" VerticalOptions="Center" TextColor="Black" />
+                            <Label Text="{i18n:Translate Blocking}" FontSize="Default" VerticalOptions="Center" TextColor="Black" />
+                            <Image Source="ic_do_not_disturb_on_black_18dp.png" HorizontalOptions="EndAndExpand" Margin="0,0,10,0">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.BlockingProgressCommand, Source={x:Reference page}}" CommandParameter="{Binding UserId}" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </Components:NonPersistentSelectedItemListView.ItemTemplate>
+            <Components:NonPersistentSelectedItemListView.FooterTemplate>
+                <DataTemplate>
+                    <StackLayout BackgroundColor="{StaticResource White}">
+                        <Label IsVisible="{Binding Source={x:Reference lstView}, Path=IsShowEmptyMessage}" Text="{i18n:Translate DoNotBlockListIsEmpty}" Style="{StaticResource EmptyModel}" />
+                        <Image Style="{StaticResource ZigZag}" IsVisible="{Binding Source={x:Reference lstView}, Path=IsRefreshing, Converter={StaticResource not}}" />
+                    </StackLayout>
+                </DataTemplate>
+            </Components:NonPersistentSelectedItemListView.FooterTemplate>
+        </Components:NonPersistentSelectedItemListView>
+    </ContentPage.Content>
+</ContentPage>

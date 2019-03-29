@@ -1,0 +1,42 @@
+﻿namespace ContestPark.Entities.Enums
+{
+    public enum Missions : int
+    {
+        Mission1 = 1,
+        Mission2 = 2,
+        Mission3 = 3,
+        Mission4 = 4,
+        Mission5 = 5,
+        Mission6 = 6,
+        Mission7 = 7,
+        Mission8 = 8,
+        Mission9 = 9,
+        Mission10 = 10,
+        Mission11 = 11,
+        Mission12 = 12,
+        Mission13 = 13,
+        Mission14 = 14,
+        Mission15 = 15,
+        Mission16 = 16,
+        Mission17 = 17,
+        Mission18 = 18,
+        Mission19 = 19,
+        Mission20 = 20,
+        Mission21 = 21,
+        Mission22 = 22,
+        Mission23 = 23,
+        Mission24 = 24,
+        Mission25 = 25,
+        Mission26 = 26,
+        Mission27 = 27,
+        Mission28 = 28,
+        Mission29 = 29,
+        Mission30 = 30,
+        Mission31 = 31,
+        Mission32 = 32,
+        Mission33 = 33,
+        Mission34 = 34,
+        Mission35 = 35,
+        Mission36 = 36
+    }
+}

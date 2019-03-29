@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ContestPark.Mobile.Views.SettingsPage"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <ListView HasUnevenRows="true"
+              ItemSelected="OnItemSelected"
+              SeparatorColor="#dedede"
+              IsGroupingEnabled="true"
+              ItemsSource="{Binding Items}"
+              IsPullToRefreshEnabled="False"
+              Style="{StaticResource ListViewOnlyFooter}">
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout BackgroundColor="{StaticResource White}" VerticalOptions="FillAndExpand" Orientation="Horizontal" Padding="20,10,0,10" Spacing="20">
+                            <Label Text="{Binding Heading}" FontSize="Default" FontAttributes="Bold" VerticalOptions="Center" TextColor="{StaticResource PrimaryText}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Padding="20,10,0,10" Spacing="20" BackgroundColor="{StaticResource White}">
+                            <Image Source="{Binding Icon}" WidthRequest="27" HeightRequest="27" VerticalOptions="Center" />
+                            <Label Text="{Binding Title}" FontSize="Default" VerticalOptions="Center" TextColor="Black" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.FooterTemplate>
+                <DataTemplate>
+                    <Image Source="zigzag.png" Aspect="Fill" />
+                </DataTemplate>
+            </ListView.FooterTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

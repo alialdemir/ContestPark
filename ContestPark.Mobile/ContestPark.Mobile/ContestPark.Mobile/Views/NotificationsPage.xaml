@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Components="clr-namespace:ContestPark.Mobile.Components;assembly=ContestPark.Mobile"
+             xmlns:Converter="clr-namespace:ContestPark.Mobile.Converters;assembly=ContestPark.Mobile"
+             xmlns:i18n="clr-namespace:ContestPark.Mobile;assembly=ContestPark.Mobile"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ContestPark.Mobile.Views.NotificationsPage"
+             x:Name="page"
+             Title="{Binding Title}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converter:NegativeBooleanConverter x:Key="not" />
+            <Converter:DateTimeMomentConverter x:Key="moment" />
+            <Converter:NotificationDuelButtonVisibleConverter x:Key="duelButton" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Components:NonPersistentSelectedItemListView x:Name="lstView"
+                                                      InfiniteScroll="{Binding InfiniteScroll}"
+                                                      Style="{StaticResource ListViewOnlyFooter}"
+                                                      IsShowEmptyMessage="{Binding IsShowEmptyMessage}">
+            <Components:NonPersistentSelectedItemListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="8">
+                            <Frame HasShadow="True"  Padding="0" HorizontalOptions="FillAndExpand">
+                                <StackLayout Spacing="0">
+                                    <Components:ListItemView
+                                      Source="{Binding PicturePath}"
+                                      Text="{Binding WhoFullName}"
+                                      Detail="{Binding NotificationType}"
+                                      UserName="{Binding WhoUserName}"
+                                      Date="{Binding Date,Converter={StaticResource moment}}"
+                                      CommandParameter="{Binding NotificationId}"
+                                      LongPressed="{Binding Path=DeleteItemCommand, Source={x:Reference page}}"
+                                      SingleTap="{Binding Path=SelectedItemCommand, Source={x:Reference page}}" />
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Spacing="0" IsVisible="{Binding NotificationTypeId,Converter={StaticResource duelButton}}">
+                                        <Button Text="{i18n:Translate Defeat}"
+                                Image="ic_do_not_disturb_on_black_18dp.png"
+                                ContentLayout="Right,0"
+                                Command="{Binding Path=SmotherDuelCommand, Source={x:Reference page}}"
+                                CommandParameter="{Binding NotificationId}"
+                                HeightRequest="37" TextColor="#bb2727"
+                                HorizontalOptions="EndAndExpand"
+                                BackgroundColor="Transparent"
+                                VerticalOptions="EndAndExpand" />
+                                        <Button Text="{i18n:Translate Resist}"
+                                Image="ic_verified_user_black_12dp.png"
+                                ContentLayout="Right,0"
+                                Command="{Binding Path=AcceptsDuelCommand, Source={x:Reference page}}"
+                                CommandParameter="{Binding NotificationId}"
+                                HeightRequest="37"
+                                TextColor="#ff630d"
+                                HorizontalOptions="End"
+                                BackgroundColor="Transparent"
+                                VerticalOptions="EndAndExpand" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </Components:NonPersistentSelectedItemListView.ItemTemplate>
+            <Components:NonPersistentSelectedItemListView.FooterTemplate>
+                <DataTemplate>
+                    <StackLayout BackgroundColor="{StaticResource White}">
+                        <Label IsVisible="{Binding Source={x:Reference lstView}, Path=IsShowEmptyMessage}" Text="{i18n:Translate YourNotificationListIsEmpty}" Style="{StaticResource EmptyModel}" />
+                        <Image Style="{StaticResource ZigZag}" IsVisible="{Binding Source={x:Reference lstView}, Path=IsShowEmptyMessage}" />
+                    </StackLayout>
+                </DataTemplate>
+            </Components:NonPersistentSelectedItemListView.FooterTemplate>
+        </Components:NonPersistentSelectedItemListView>
+    </ContentPage.Content>
+</ContentPage>

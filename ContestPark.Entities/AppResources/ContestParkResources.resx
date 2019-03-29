@@ -1,0 +1,739 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountInfoUpdate" xml:space="preserve">
+    <value>Hesap bilgileri güncellendi.</value>
+  </data>
+  <data name="AccountSettings" xml:space="preserve">
+    <value>Hesap Ayarları</value>
+  </data>
+  <data name="AdmitDefeat" xml:space="preserve">
+    <value>Düelloda yenilmeyi kabul ediyor musun?</value>
+  </data>
+  <data name="Block" xml:space="preserve">
+    <value>Engelle</value>
+  </data>
+  <data name="Blocking" xml:space="preserve">
+    <value>Engelledin.</value>
+  </data>
+  <data name="BlockUsersList" xml:space="preserve">
+    <value>Engellediğiniz kullanıcı listesi</value>
+  </data>
+  <data name="Buy" xml:space="preserve">
+    <value>Satın Al</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Kategoriler</value>
+  </data>
+  <data name="CategoryLocked" xml:space="preserve">
+    <value>Bu kategori kilitli. Kilidi açmak ister misiniz?</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Şifre Değiştir</value>
+  </data>
+  <data name="Chats" xml:space="preserve">
+    <value>Mesajlar</value>
+  </data>
+  <data name="ChatSettings" xml:space="preserve">
+    <value>Chat settings</value>
+  </data>
+  <data name="Collect" xml:space="preserve">
+    <value>Topla</value>
+  </data>
+  <data name="ConfirmBlock" xml:space="preserve">
+    <value>Engellemeyi Onayla</value>
+  </data>
+  <data name="ConfirmBlockTitle" xml:space="preserve">
+    <value> isimli kullanıcıyı engellemek istediğinden emin misin?</value>
+  </data>
+  <data name="ContestStore" xml:space="preserve">
+    <value>Contest Store</value>
+  </data>
+  <data name="CoverPictureChange" xml:space="preserve">
+    <value>Kapak resmi değiştir</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Sil</value>
+  </data>
+  <data name="Deleteconversation" xml:space="preserve">
+    <value>Konuşmayı sil</value>
+  </data>
+  <data name="DeleteMessage" xml:space="preserve">
+    <value> ile aranızdaki sohbeti silmek istediğinizden emin misiniz?</value>
+  </data>
+  <data name="DeleteMessageTitle" xml:space="preserve">
+    <value>Mesaj sil?</value>
+  </data>
+  <data name="DoNotBlockListIsEmpty" xml:space="preserve">
+    <value>Engelleme listeniz boş.</value>
+  </data>
+  <data name="Duel" xml:space="preserve">
+    <value>Düello</value>
+  </data>
+  <data name="DuelDefeatMessage" xml:space="preserve">
+    <value>Duello teklifini silerseniz aynı zaman da yenilmiş sayılacaksınız. Yenilgiyi kabul ediyor musunuz?</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Eposta</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>İngilizce</value>
+  </data>
+  <data name="enterYourUsernamEAndPassword" xml:space="preserve">
+    <value>Kullanıcı adı ve şifre giriniz.</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Hata</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Çıkış Yap</value>
+  </data>
+  <data name="FacebookAddress" xml:space="preserve">
+    <value>Facebook adresimiz</value>
+  </data>
+  <data name="Follow" xml:space="preserve">
+    <value>Takip Et</value>
+  </data>
+  <data name="Followers" xml:space="preserve">
+    <value>Takip edenler</value>
+  </data>
+  <data name="Following" xml:space="preserve">
+    <value>Takip edilenler</value>
+  </data>
+  <data name="FollowingCategories" xml:space="preserve">
+    <value>Takip Ettiğim Kategoriler</value>
+  </data>
+  <data name="FollowingProfile" xml:space="preserve">
+    <value>Takip Edilenler</value>
+  </data>
+  <data name="FollowUsOnSocialNetworks" xml:space="preserve">
+    <value>Sosyal ağlarda bizi takip edin</value>
+  </data>
+  <data name="ForgetYourPasswordLabel1" xml:space="preserve">
+    <value>Kullanıcı adı veya eposta adresi giriniz.</value>
+  </data>
+  <data name="ForgetYourPasswordLabel2" xml:space="preserve">
+    <value>Eposta adresi veya kullanıcı adınızı giriniz. Hesap bilgilerinizi içeren bir e-posta alacaksınız.</value>
+  </data>
+  <data name="ForgotYourPassword" xml:space="preserve">
+    <value>Şifremi unutmuşum</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Ad soyad</value>
+  </data>
+  <data name="GlobalSettings" xml:space="preserve">
+    <value>Genel Ayarlar</value>
+  </data>
+  <data name="InstagramAddress" xml:space="preserve">
+    <value>Instagram adresimiz</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>Diller</value>
+  </data>
+  <data name="LoginWithFacebook" xml:space="preserve">
+    <value>Facebook ile giriş yap</value>
+  </data>
+  <data name="MessageSettings" xml:space="preserve">
+    <value>Mesaj Ayarları</value>
+  </data>
+  <data name="Missions" xml:space="preserve">
+    <value>Görevler</value>
+  </data>
+  <data name="NewChat" xml:space="preserve">
+    <value>Yeni Sohbet</value>
+  </data>
+  <data name="NewMissionsComingSoon" xml:space="preserve">
+    <value>Yeni Görevler Yakında!</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Yeni Şifre</value>
+  </data>
+  <data name="NoGold" xml:space="preserve">
+    <value>Altın yok</value>
+  </data>
+  <data name="NotificationRemove" xml:space="preserve">
+    <value>Bildirim sil</value>
+  </data>
+  <data name="NotificationRemoveMessage" xml:space="preserve">
+    <value>Bu bildirimi silmek istediğinizden emin misiniz?</value>
+  </data>
+  <data name="Notifications" xml:space="preserve">
+    <value>Bildirimler</value>
+  </data>
+  <data name="Okay" xml:space="preserve">
+    <value>Tamam</value>
+  </data>
+  <data name="OldPassword" xml:space="preserve">
+    <value>Eski Şifre</value>
+  </data>
+  <data name="OtherUsers" xml:space="preserve">
+    <value>DİĞER KULLANICILAR</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Şifre</value>
+  </data>
+  <data name="PictureSettings" xml:space="preserve">
+    <value>Resim Ayarları </value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="ProfilePictureChange" xml:space="preserve">
+    <value>Profil resmi değiştir</value>
+  </data>
+  <data name="PushTheButtonRulesYouAgree" xml:space="preserve">
+    <value>Düğmeye basarak Kuralları kabul etmiş olursunuz.</value>
+  </data>
+  <data name="RemoveBlock" xml:space="preserve">
+    <value>Engelli kaldır</value>
+  </data>
+  <data name="RequestsAndComplaints" xml:space="preserve">
+    <value>İstek ve Şikayet</value>
+  </data>
+  <data name="RequiredFields" xml:space="preserve">
+    <value>Gerekli alanları doldurunuz.</value>
+  </data>
+  <data name="Resist" xml:space="preserve">
+    <value>Karşı koy</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Kaydet</value>
+  </data>
+  <data name="SearchPeople" xml:space="preserve">
+    <value>Kullanıcı ara...</value>
+  </data>
+  <data name="SeeAll" xml:space="preserve">
+    <value>Tümü</value>
+  </data>
+  <data name="SelectATtopicAndWriteYourMessage" xml:space="preserve">
+    <value>Konu seçiniz ve mesajınızı yazınız.</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Gönder</value>
+  </data>
+  <data name="SendPassword" xml:space="preserve">
+    <value>Şifreyi gönder gelsin!</value>
+  </data>
+  <data name="ServerMessage_contestantFound" xml:space="preserve">
+    <value>Böyle bir yarışmacı bulunamadı. Böyle bir kullanıcı olmayabilir yada hesabını dondurmuş olabilir.</value>
+  </data>
+  <data name="ServerMessage_doNotBlockToYourself" xml:space="preserve">
+    <value>Kendi kendiniz engelleyemezsiniz.</value>
+  </data>
+  <data name="ServerMessage_dontRemoveCoverPicture" xml:space="preserve">
+    <value>Kapak fotoğrafı silinemedi.</value>
+  </data>
+  <data name="ServerMessage_duelRenewalProcessDidNotHappen" xml:space="preserve">
+    <value>Düello yenilme işlemi gerçekleşmedi.</value>
+  </data>
+  <data name="ServerMessage_emailFormating" xml:space="preserve">
+    <value>Eposta adresiniz düzgün formatta değil.</value>
+  </data>
+  <data name="ServerMessage_emailMaxLength" xml:space="preserve">
+    <value>Eposta maksimum 255 karakter olmalıdır.</value>
+  </data>
+  <data name="ServerMessage_emailRequiredFields" xml:space="preserve">
+    <value>Eposta alanını doldurmak zorunludur.</value>
+  </data>
+  <data name="ServerMessage_fullNameMaxLength" xml:space="preserve">
+    <value>Ad Soyad maksimum 255 karakter olmalıdır.</value>
+  </data>
+  <data name="ServerMessage_fullNameMinLength" xml:space="preserve">
+    <value>Ad Soyad minimum 3 karakter ve üzeri olmalıdır.</value>
+  </data>
+  <data name="ServerMessage_fullNameRequiredFields" xml:space="preserve">
+    <value>Ad Soyad alanını doldurmak zorunludur.</value>
+  </data>
+  <data name="ServerMessage_insufficientGold" xml:space="preserve">
+    <value>Altın miktarınız yeterli değil.</value>
+  </data>
+  <data name="ServerMessage_inThisPostYouHaveAlreadyLiked" xml:space="preserve">
+    <value>Bu bağlantıyı zaten beğenmişsiniz.</value>
+  </data>
+  <data name="ServerMessage_keyFalse" xml:space="preserve">
+    <value>Key Yanlış!</value>
+  </data>
+  <data name="ServerMessage_messagesWasBackgroundImage" xml:space="preserve">
+    <value>Mesaj arka plan resmi yapıldı.</value>
+  </data>
+  <data name="ServerMessage_notEqualsConfirmPassword" xml:space="preserve">
+    <value>Şifre ve şifre tekrarla eşleşmiyor.</value>
+  </data>
+  <data name="ServerMessage_notificationIdWasNotYou" xml:space="preserve">
+    <value>Bildirim id size ait değil.</value>
+  </data>
+  <data name="ServerMessage_oldPasswordAndNewPasswordMinLength" xml:space="preserve">
+    <value>Eski şifre ve yeni şifre 8 karakter üzeri olmalıdır.</value>
+  </data>
+  <data name="ServerMessage_ourRegisteredMembersOfThisInformationDoesNotExist" xml:space="preserve">
+    <value>Bu bilgilere ait üyemiz bulunmamaktadır.</value>
+  </data>
+  <data name="ServerMessage_passwordMaxLength" xml:space="preserve">
+    <value>Şifreniz maksimum 32 karakter olmalıdır.</value>
+  </data>
+  <data name="ServerMessage_passwordMinLength" xml:space="preserve">
+    <value>Şifreniz minimum 8 karakter ve üzeri olmalıdır.</value>
+  </data>
+  <data name="ServerMessage_passwordRequiredFields" xml:space="preserve">
+    <value>Şifre alanını doldurmak zorunludur.</value>
+  </data>
+  <data name="ServerMessage_pictureFormat" xml:space="preserve">
+    <value>Lütfen profil resminizin uzantısı (.jpg, .bmp, .png) uzantılı olmalı.</value>
+  </data>
+  <data name="ServerMessage_pictureIsNotYours" xml:space="preserve">
+    <value>Bu resim size ait değil bu yüzden silemezsiniz.</value>
+  </data>
+  <data name="ServerMessage_requestedQuestionNotFound" xml:space="preserve">
+    <value>İstenilen soru bulunamadı.</value>
+  </data>
+  <data name="ServerMessage_sendMailErrorMessage" xml:space="preserve">
+    <value>Mail gönderilirken hata oluştu lütfen tekrar deneyiniz.</value>
+  </data>
+  <data name="ServerMessage_sendPasswordErrorMessage" xml:space="preserve">
+    <value>Şifre gönderme işleminde bir hata oluştu.</value>
+  </data>
+  <data name="ServerMessage_supportMessage" xml:space="preserve">
+    <value>Destek talebiniz iletildi en kısa zamanda size dönüş yapılacaktır. Teşekkür ederiz.</value>
+  </data>
+  <data name="ServerMessage_thisEmailAddressUsedByAnotherUser" xml:space="preserve">
+    <value>Bu eposta adresi başka bir kullanıcı tarafından kullanılmış.</value>
+  </data>
+  <data name="ServerMessage_thisLinkUnLike" xml:space="preserve">
+    <value>Bu bağlantıya ait beğenme gözükmüyor.</value>
+  </data>
+  <data name="ServerMessage_thisPictureIsNotYours" xml:space="preserve">
+    <value>Bu resim size ait değil.</value>
+  </data>
+  <data name="ServerMessage_thisUserAreAlreadyFollowing" xml:space="preserve">
+    <value>Bu kullanıcı zaten takip ediyor.</value>
+  </data>
+  <data name="ServerMessage_thisUserFollowing" xml:space="preserve">
+    <value>Bu kişiyi takip ediyor gözükmüyorsunuz.</value>
+  </data>
+  <data name="ServerMessage_thisUserIsAlreadyBlocked" xml:space="preserve">
+    <value>Bu kişiyi zaten engellemişsiniz.</value>
+  </data>
+  <data name="ServerMessage_thisUserNameWasUsedByAnotherUser" xml:space="preserve">
+    <value>Bu kullanıcı adı başka kullanıcı tarafından kullanılmış.</value>
+  </data>
+  <data name="ServerMessage_userBlocked" xml:space="preserve">
+    <value>Bu kişi ile aranızda engelleme var. Siz onu yada o sizi engellemiş olabilir.</value>
+  </data>
+  <data name="ServerMessage_userInfoSendMailAdress" xml:space="preserve">
+    <value>Kullanıcı bilgileriniz mail adresinize gönderilmiştir.</value>
+  </data>
+  <data name="ServerMessage_userLiftedTheBlock" xml:space="preserve">
+    <value>Kullanıcının engeli kaldırıldı.</value>
+  </data>
+  <data name="ServerMessage_userNameMaxLength" xml:space="preserve">
+    <value>Kullanıcı adınız maksimum 255 karakter olmalıdır.</value>
+  </data>
+  <data name="ServerMessage_userNameMinLength" xml:space="preserve">
+    <value>Kullanıcı adınız minimum 3 karakter ve üzeri olmalıdır.</value>
+  </data>
+  <data name="ServerMessage_UsernameOrPasswordIsIncorrect" xml:space="preserve">
+    <value>Kullanıcı adı veya şifre yanlış.</value>
+  </data>
+  <data name="ServerMessage_userNameRequiredFields" xml:space="preserve">
+    <value>Kullanıcı adı alanını doldurmak zorunludur.</value>
+  </data>
+  <data name="ServerMessage_userNameTurkishCharactersCanNot" xml:space="preserve">
+    <value>Kullanıcı adınızda türkçe karakter olamaz.</value>
+  </data>
+  <data name="ServerMessage_youCannotFollowASelf" xml:space="preserve">
+    <value>Kendi kendinizi takip edemezsiniz.</value>
+  </data>
+  <data name="ServerMessage_youCanNotMessageToYourself" xml:space="preserve">
+    <value>Kendi kendinize mesaj atamazsınız.</value>
+  </data>
+  <data name="ServerMessage_youCanNotRemoveTheBlockYourself" xml:space="preserve">
+    <value>Kendi kendinizin engelini kaldıramazsınız.</value>
+  </data>
+  <data name="ServerMessage_youDoNotHaveEnoughGoldToPlay" xml:space="preserve">
+    <value>Oynamak için yeterli altınınız yok.</value>
+  </data>
+  <data name="ServerMessage_youUserBlock" xml:space="preserve">
+    <value>Bu kullanıcıyı engellememiş gözüküyorsunuz.</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Ayarlar</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Giriş Yap</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>Üye Ol</value>
+  </data>
+  <data name="Statistics" xml:space="preserve">
+    <value>İstatislikler</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Başarılı</value>
+  </data>
+  <data name="Topic" xml:space="preserve">
+    <value>Konu</value>
+  </data>
+  <data name="Turkish" xml:space="preserve">
+    <value>Türkçe</value>
+  </data>
+  <data name="TwitterAddress" xml:space="preserve">
+    <value>Twitter adresimiz</value>
+  </data>
+  <data name="UnFollow" xml:space="preserve">
+    <value>Takibi Bırak</value>
+  </data>
+  <data name="UnLock" xml:space="preserve">
+    <value>Kilidi Aç</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Kullanıcı adı</value>
+  </data>
+  <data name="UserNameOrEmail" xml:space="preserve">
+    <value>Kullanıcı adı veya eposta</value>
+  </data>
+  <data name="UserSettings" xml:space="preserve">
+    <value>Kullanıcı Ayarları</value>
+  </data>
+  <data name="WelcomeAboard" xml:space="preserve">
+    <value>Aramıza hoş geldiniz. Az sonra yönlendirme işlemi gerçekleşecek.</value>
+  </data>
+  <data name="YouDoNotHaveASufficientAmountOfGoldToOpenThisCategory" xml:space="preserve">
+    <value>Bu kategoriyi açmak için yeterli miktarda altınınız yok. Altın satın almak ister misiniz?</value>
+  </data>
+  <data name="YourMessage" xml:space="preserve">
+    <value>Mesajınız</value>
+  </data>
+  <data name="Winning" xml:space="preserve">
+    <value>Kazanan</value>
+  </data>
+  <data name="GlobalErrorMessage" xml:space="preserve">
+    <value>Üzgünüz, beklenmedik bir hata oluştu yetkililere bildirildi.</value>
+  </data>
+  <data name="Defeat" xml:space="preserve">
+    <value>Yenilği</value>
+  </data>
+  <data name="Lose" xml:space="preserve">
+    <value>Kaybetti</value>
+  </data>
+  <data name="Tie" xml:space="preserve">
+    <value>Berabere</value>
+  </data>
+  <data name="CategorySearch" xml:space="preserve">
+    <value>Kategori Ara</value>
+  </data>
+  <data name="FindOpponent" xml:space="preserve">
+    <value>RAKİP BUL</value>
+  </data>
+  <data name="Ranking" xml:space="preserve">
+    <value>Sıralama</value>
+  </data>
+  <data name="SelectImageProcessing" xml:space="preserve">
+    <value>Resim İşlemi Seçiniz</value>
+  </data>
+  <data name="Global" xml:space="preserve">
+    <value>GENEL</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>İsim</value>
+  </data>
+  <data name="Rank" xml:space="preserve">
+    <value>Sıra</value>
+  </data>
+  <data name="Score" xml:space="preserve">
+    <value>Puan</value>
+  </data>
+  <data name="Bet" xml:space="preserve">
+    <value>Bahis Tutarı</value>
+  </data>
+  <data name="Chat" xml:space="preserve">
+    <value>Sohbet Et</value>
+  </data>
+  <data name="OtherOpponent" xml:space="preserve">
+    <value>Başka Rakip</value>
+  </data>
+  <data name="Revenge" xml:space="preserve">
+    <value>Rövanş</value>
+  </data>
+  <data name="CompetitorsIsExpectedResistDuel" xml:space="preserve">
+    <value>Rakibin duelloya karşı koyması bekleniyor</value>
+  </data>
+  <data name="Draw" xml:space="preserve">
+    <value>Berabere</value>
+  </data>
+  <data name="YouLose" xml:space="preserve">
+    <value>Yenildin!</value>
+  </data>
+  <data name="YouWin" xml:space="preserve">
+    <value>Sen kazandın!</value>
+  </data>
+  <data name="DuelResult" xml:space="preserve">
+    <value>Düello Sonucu</value>
+  </data>
+  <data name="Questions" xml:space="preserve">
+    <value>Sorular</value>
+  </data>
+  <data name="Like" xml:space="preserve">
+    <value>Beğen</value>
+  </data>
+  <data name="UnLike" xml:space="preserve">
+    <value>Beğenmekten Vazgeç</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Yorum</value>
+  </data>
+  <data name="SelectProcess" xml:space="preserve">
+    <value>İşlem Seçiniz</value>
+  </data>
+  <data name="ServerMessage_theJokerIsNotFound" xml:space="preserve">
+    <value>Joker bulunamadı.</value>
+  </data>
+  <data name="MessageYourListIsEmpty" xml:space="preserve">
+    <value>Mesaj listeniz boş.</value>
+  </data>
+  <data name="ChatNotSeen" xml:space="preserve">
+    <value>Sohbet görüldü yapılamadı.</value>
+  </data>
+  <data name="YourNotificationListIsEmpty" xml:space="preserve">
+    <value>Bildirim listeniz boş.</value>
+  </data>
+  <data name="ChangeLang" xml:space="preserve">
+    <value>Dil ayarını değiştirirseniz uygulama yeniden başlatılacaktır. Dil ayarını değiştirmek istediğinize emin misiniz?</value>
+    <comment>Name kısmı ingilizce olmalı</comment>
+  </data>
+  <data name="ChangeLangError" xml:space="preserve">
+    <value>Dil ayarı değiştirilirken bir hata meydana geldi. Lütfen tekrar deneyiniz.</value>
+    <comment>Name kısmı ingilizce olmalı</comment>
+  </data>
+  <data name="ChangeLangTitle" xml:space="preserve">
+    <value>Dil ayarı değiştirme</value>
+    <comment>Name kısmı ingilizce olmalı</comment>
+  </data>
+  <data name="ChangeOkay" xml:space="preserve">
+    <value>Eminim</value>
+    <comment>Name kısmı ingilizce olmalı</comment>
+  </data>
+  <data name="ThisLikes" xml:space="preserve">
+    <value>Bunu beğenenler</value>
+  </data>
+  <data name="ServerMessage_ThisCateogoryUnlock" xml:space="preserve">
+    <value>Bu kategoriyi takip etmek için ilk önce klidi açmalısınız.</value>
+    <comment>Name kısmı ingilizce olmalı</comment>
+  </data>
+  <data name="ServerMessage_ThisCategoryFollowing" xml:space="preserve">
+    <value>Bu kategoriyi zaten takip ettiniz.</value>
+    <comment>Name kısmı ingilizce olmalı</comment>
+  </data>
+  <data name="RankFollowingNull" xml:space="preserve">
+    <value>Takip ettiğin kimse yok. Git birilerini takip et!</value>
+    <comment>Name kısmı ingilizce olmalı</comment>
+  </data>
+  <data name="ThisCategoryRankNull" xml:space="preserve">
+    <value>Bu kategoride daha önce yarışan olmamış. İlk sırayı sen kapabilirsin!</value>
+    <comment>Name kısmı ingilizce olmalı</comment>
+  </data>
+  <data name="ServerMessage_ThisCategoryOpen" xml:space="preserve">
+    <value>Bu kategorinin kilidini zaten açtınız.</value>
+    <comment>Name kısmı ingilizce olmalı</comment>
+  </data>
+  <data name="ContestPostEmptyMessage" xml:space="preserve">
+    <value>Bu kategoriye ait geçmiş bulunmamakta.</value>
+    <comment>Name kısmı ingilizce olmalı</comment>
+  </data>
+  <data name="AwaitingOpponent" xml:space="preserve">
+    <value>Rakip Bekleniyor...</value>
+  </data>
+  <data name="ServerMessages_thisUserFollowing" xml:space="preserve">
+    <value>Bu kişiyi takip ediyor gözükmüyorsunuz.</value>
+  </data>
+  <data name="DoYouWantToToQuit" xml:space="preserve">
+    <value>Çıkmak istiyor musunuz?</value>
+  </data>
+  <data name="DuelExitQuestion" xml:space="preserve">
+    <value>Çıkış yaparsanız düelloyu kayıp etmiş sayılacaksınız yinede çıkmak istiyor musunuz?</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Paylaş</value>
+  </data>
+  <data name="History" xml:space="preserve">
+    <value>Geçmiş</value>
+  </data>
+  <data name="ConcurrencyFailure" xml:space="preserve">
+    <value>Optimistic concurrency failure, object has been modified.</value>
+  </data>
+  <data name="DefaultError" xml:space="preserve">
+    <value>An unknown failure has occurred.</value>
+  </data>
+  <data name="DuplicateEmail" xml:space="preserve">
+    <value>Email '{0}' is already taken.</value>
+  </data>
+  <data name="DuplicateRoleName" xml:space="preserve">
+    <value>Role name '{0}' is already taken.</value>
+  </data>
+  <data name="DuplicateUserName" xml:space="preserve">
+    <value>User Name '{0}' is already taken.</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>Email '{0}' is invalid.</value>
+  </data>
+  <data name="InvalidRoleName" xml:space="preserve">
+    <value>Role name '{0}' is invalid.</value>
+  </data>
+  <data name="InvalidToken" xml:space="preserve">
+    <value>Invalid token.</value>
+  </data>
+  <data name="InvalidUserName" xml:space="preserve">
+    <value>User name '{0}' is invalid, can only contain letters or digits.</value>
+  </data>
+  <data name="LoginAlreadyAssociated" xml:space="preserve">
+    <value>A user with this login already exists.</value>
+  </data>
+  <data name="PasswordMismatch" xml:space="preserve">
+    <value>Incorrect password.</value>
+  </data>
+  <data name="PasswordRequiresDigit" xml:space="preserve">
+    <value>Passwords must have at least one digit ('0'-'9').</value>
+  </data>
+  <data name="PasswordRequiresLower" xml:space="preserve">
+    <value>Passwords must have at least one lowercase ('a'-'z').</value>
+  </data>
+  <data name="PasswordRequiresNonAlphanumeric" xml:space="preserve">
+    <value>Passwords must have at least one non alphanumeric character.</value>
+  </data>
+  <data name="PasswordRequiresUpper" xml:space="preserve">
+    <value>Passwords must have at least one uppercase ('A'-'Z').</value>
+  </data>
+  <data name="PasswordTooShort" xml:space="preserve">
+    <value>Passwords must be at least {0} characters.</value>
+  </data>
+  <data name="UserAlreadyHasPassword" xml:space="preserve">
+    <value>User already has a password set.</value>
+  </data>
+  <data name="UserAlreadyInRole" xml:space="preserve">
+    <value>User already in role '{0}'.</value>
+  </data>
+  <data name="UserLockoutNotEnabled" xml:space="preserve">
+    <value>Lockout is not enabled for this user.</value>
+  </data>
+  <data name="UserNotInRole" xml:space="preserve">
+    <value>User is not in role '{0}'.</value>
+  </data>
+</root>

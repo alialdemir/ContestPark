@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Components="clr-namespace:ContestPark.Mobile.Components;assembly=ContestPark.Mobile"
+             xmlns:i18n="clr-namespace:ContestPark.Mobile;assembly=ContestPark.Mobile"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ContestPark.Mobile.Views.SupportPage"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout Margin="8">
+            <Frame Padding="0" HasShadow="True" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource White}">
+                <StackLayout Spacing="0">
+                    <Picker ItemsSource="{Binding Items}" SelectedIndex="{Binding SupportModel.SupportTypeId}" Title="{i18n:Translate Topic}" BackgroundColor="#fff" TextColor="Black" />
+                    <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="#dedede" />
+                    <Components:CustomEditor x:Name="txtMessage" Text="{Binding SupportModel.Message}"  Placeholder="{i18n:Translate YourMessage}" TextChanged="TxtMessage_TextChanged" TextColor="Black" HeightRequest="70" Keyboard="Chat" BackgroundColor="#fff" />
+                    <Button Text="{i18n:Translate Send}"
+                  BackgroundColor="#FF5B00"
+                  Margin="0,15"
+                  FontAttributes="Bold"
+                  Style="{StaticResource FacebookButton}"
+                  Command="{Binding SendSupportCommand}" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

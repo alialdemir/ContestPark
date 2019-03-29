@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Components="clr-namespace:ContestPark.Mobile.Components;assembly=ContestPark.Mobile"
+             xmlns:Converter="clr-namespace:ContestPark.Mobile.Converters;assembly=ContestPark.Mobile"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ContestPark.Mobile.Views.PostLikesPage"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource White}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converter:NegativeBooleanConverter x:Key="not" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Components:NonPersistentSelectedItemListView x:Name="lstView" InfiniteScroll="{Binding InfiniteScroll}" Style="{StaticResource ListViewOnlyFooter}">
+            <Components:NonPersistentSelectedItemListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Components:ListItemView
+                                            Source="{Binding ProfilePicturePath}"
+                                            Text="{Binding FullName}"
+                                            AutomationId="lstViewChat"
+                                            Detail="{Binding UserName,StringFormat='@{0}'}"
+                                            UserName="{Binding UserName}" />
+                    </ViewCell>
+                </DataTemplate>
+            </Components:NonPersistentSelectedItemListView.ItemTemplate>
+            <Components:NonPersistentSelectedItemListView.FooterTemplate>
+                <DataTemplate>
+                    <Image Style="{StaticResource ZigZag}" IsVisible="{Binding Source={x:Reference lstView}, Path=IsRefreshing, Converter={StaticResource not}}" />
+                </DataTemplate>
+            </Components:NonPersistentSelectedItemListView.FooterTemplate>
+        </Components:NonPersistentSelectedItemListView>
+    </ContentPage.Content>
+</ContentPage>

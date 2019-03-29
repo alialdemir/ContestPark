@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Components="clr-namespace:ContestPark.Mobile.Components;assembly=ContestPark.Mobile"
+             x:Class="ContestPark.Mobile.Components.RankView"
+             x:Name="page">
+    <ContentView.Content>
+        <Grid Padding="16,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="40" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Source={x:Reference page}, Path=Rank}" TextColor="{StaticResource Black}" VerticalOptions="Center" />
+            <Components:CircleImage Grid.Row="0"
+                                    Grid.Column="1"
+                                    VerticalOptions="Center"
+                                    Source="{Binding UserProfilePicturePath}"
+                                    Command="{Binding Path=GotoProfilePageCommand, Source={x:Reference page}}"
+                                    CommandParameter="{Binding UserName}" />
+            <Label Grid.Row="0" Grid.Column="2" Text="{Binding UserFullName}" LineBreakMode="TailTruncation" TextColor="{StaticResource Black}" VerticalOptions="Center" />
+            <Label Grid.Row="0" Grid.Column="3" Text="{Binding TotalScore}" TextColor="{StaticResource Black}" VerticalOptions="Center" />
+        </Grid>
+    </ContentView.Content>
+</ContentView>

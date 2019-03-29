@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Components="clr-namespace:ContestPark.Mobile.Components;assembly=ContestPark.Mobile"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ContestPark.Mobile.Views.ChatDetailsPage"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource BackgroundColor}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="ic_settings_black_24dp.png" AutomationId="tbChatSettings" Command="{Binding ChatSettingsCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Components:NonPersistentSelectedItemListView x:Name="lstMessages"
+                IsRefreshing="False"
+                ItemAppearing="OnItemAppearing"
+                Style="{StaticResource ListView}">
+                    <Components:NonPersistentSelectedItemListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Components:ChatDetailView Model="{Binding .}" />
+                            </ViewCell>
+                        </DataTemplate>
+                    </Components:NonPersistentSelectedItemListView.ItemTemplate>
+                    <Components:NonPersistentSelectedItemListView.Footer>
+                        <StackLayout HeightRequest="0" />
+                    </Components:NonPersistentSelectedItemListView.Footer>
+                </Components:NonPersistentSelectedItemListView>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="FillAndExpand" BackgroundColor="#fff">
+                <Components:CustomEditor Keyboard="Chat" x:Name="txtChatbox" AutomationId="txtChatbox" Text="{Binding Message}" Focused="TxtChatbox_Focused" TextChanged="TxtChatbox_TextChanged"  Completed="txtChatbox_Completed" HorizontalOptions="FillAndExpand" TextColor="#7b7b7b" HeightRequest="35" />
+                <Button x:Name="btnBtnSendMessage" Image="ic_near_me_black_36dp.png" AutomationId="btnBtnSendMessage" Clicked="txtChatbox_Completed" BackgroundColor="Transparent" HorizontalOptions="End" HeightRequest="35" Opacity="0.20" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

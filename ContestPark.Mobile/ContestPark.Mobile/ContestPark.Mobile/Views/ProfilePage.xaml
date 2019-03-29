@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Components="clr-namespace:ContestPark.Mobile.Components;assembly=ContestPark.Mobile"
+             xmlns:Converter="clr-namespace:ContestPark.Mobile.Converters;assembly=ContestPark.Mobile"
+             xmlns:i18n="clr-namespace:ContestPark.Mobile;assembly=ContestPark.Mobile"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ContestPark.Mobile.Views.ProfilePage"
+             x:Name="page"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--xmlns:fab="clr-namespace:FAB.Forms;assembly=FAB.Forms"-->
+
+            <Converter:NegativeBooleanConverter x:Key="not" />
+            <Converter:FollowButtonIconConverter x:Key="isFollowIconConverter" />
+            <Converter:ProfileButtonVisibleConverter x:Key="btnIsVisible" />
+            <!--  Application resource dictionary  -->
+            <!--  colors  -->
+            <Color x:Key="HeaderTextColor">#585858</Color>
+            <Color x:Key="BodyTextColor">#C3C3C3</Color>
+
+            <!--  font families  -->
+            <OnPlatform x:Key="RegularFontFamily" x:TypeArguments="x:String">
+                <On Platform="iOS">HelveticaNeue</On>
+                <On Platform="Android">sans-serif</On>
+            </OnPlatform>
+
+            <OnPlatform x:Key="LightFontFamily" x:TypeArguments="x:String">
+                <On Platform="iOS">HelveticaNeue-Light</On>
+                <On Platform="Android">sans-serif-light</On>
+            </OnPlatform>
+
+            <OnPlatform x:Key="MediumFontFamily" x:TypeArguments="x:String">
+                <On Platform="iOS">HelveticaNeue-Medium</On>
+                <On Platform="Android">sans-serif-medium</On>
+            </OnPlatform>
+
+            <!--  font sizes  -->
+            <x:Double x:Key="TitleFontSize">20</x:Double>
+            <x:Double x:Key="TagTextFontSize">18</x:Double>
+            <x:Double x:Key="StatsNumberFontSize">20</x:Double>
+            <x:Double x:Key="StatsCaptionFontSize">16</x:Double>
+
+            <!--  styles  -->
+            <Style x:Key="ProfileNameLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource HeaderTextColor}" />
+                <Setter Property="FontFamily" Value="{StaticResource MediumFontFamily}" />
+                <Setter Property="FontSize" Value="{StaticResource TitleFontSize}" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+
+            <Style x:Key="ProfileTagLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource BodyTextColor}" />
+                <Setter Property="FontFamily" Value="{StaticResource RegularFontFamily}" />
+                <Setter Property="FontSize" Value="{StaticResource TagTextFontSize}" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+
+            <Style x:Key="StatsNumberLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource HeaderTextColor}" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="FontFamily" Value="{StaticResource LightFontFamily}" />
+                <Setter Property="FontSize" Value="{StaticResource StatsNumberFontSize}" />
+            </Style>
+
+            <Style x:Key="StatsCaptionLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource BodyTextColor}" />
+                <Setter Property="Margin" Value="0,-5,0,0" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="FontFamily" Value="{StaticResource LightFontFamily}" />
+                <Setter Property="FontSize" Value="{StaticResource StatsCaptionFontSize}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Components:NonPersistentSelectedItemListView
+                    InfiniteScroll="{Binding InfiniteScroll}"
+                    Style="{StaticResource ListView}">
+            <Components:NonPersistentSelectedItemListView.Header>
+                <Grid RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- header background -->
+                    <Image Source="{Binding ProfileInfo.CoverPicture}" HeightRequest="200" Aspect="AspectFill">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Path=GotoPhotoModalPageCommand}" CommandParameter="Cover" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image Source="CurvedMask.png" Margin="0,0,0,-1" Aspect="Fill" VerticalOptions="End" />
+                    <!-- Back button -->
+                    <Image Source="ic_arrow_back_white_24dp.png" Margin="16,16,0,0" Aspect="Fill" VerticalOptions="Start" HorizontalOptions="Start" IsVisible="{Binding IsVisibleBackArrow}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Path=GotoBackCommand}" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <!-- profile name -->
+                    <StackLayout Grid.Row="1" Padding="0,50,0,0">
+                        <Label Text="{Binding ProfileInfo.FullName}"
+                   Style="{StaticResource ProfileNameLabel}" />
+                    </StackLayout>
+                    <!-- social stats -->
+                    <Grid Grid.Row="2"  ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Column="0">
+                            <Label Text="{Binding GameCount}" Style="{StaticResource StatsNumberLabel}" />
+                            <Label Text="{i18n:Translate Duel}" Style="{StaticResource StatsCaptionLabel}" />
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="1">
+                            <Label Text="{Binding FollowUpCount}" Style="{StaticResource StatsNumberLabel}" />
+                            <Label Text="{i18n:Translate Following}" Style="{StaticResource StatsCaptionLabel}" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Path=GotoFollowsCommand}" CommandParameter="2" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="2">
+                            <Label Text="{Binding FollowersCount}" Style="{StaticResource StatsNumberLabel}" />
+                            <Label Text="{i18n:Translate Followers}" Style="{StaticResource StatsCaptionLabel}" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Path=GotoFollowsCommand}" CommandParameter="1" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </Grid>
+                    <!-- profile image -->
+                    <Components:CircleImage Source="{Binding ProfileInfo.UserProfilePicturePath}"
+                                            WidthRequest="100"
+                                            HeightRequest="100"
+                                            VerticalOptions="End"
+                                            HorizontalOptions="Center"
+                                            TranslationY="50"
+                                            Command="{Binding Path=GotoPhotoModalPageCommand}"
+                                            CommandParameter="Profile" />
+
+                    <!--<fab:FloatingActionButton Source="ic_chat_white_24dp.png"
+                                              IsVisible="{Binding ProfileInfo.UserId, Converter={StaticResource btnIsVisible}}"
+                                              Size="Normal"
+                                              Margin="10,0,0,0"
+                                              HorizontalOptions="Start"
+                                              VerticalOptions="End"
+                                              NormalColor="{StaticResource Blue}"
+                                              PressedColor="{StaticResource LightPink}"
+                                              Command="{Binding Path=BindingContext.GotoChatPageCommand, Source={x:Reference page}}" />
+
+                    <fab:FloatingActionButton
+                                   Source="{Binding IsFollow, Converter={StaticResource isFollowIconConverter}}"
+                                   IsVisible="{Binding ProfileInfo.UserId, Converter={StaticResource btnIsVisible}}"
+                                   Size="Normal"
+                                   Margin="0,0,10,0"
+                                   HorizontalOptions="End"
+                                   VerticalOptions="End"
+                                   NormalColor="{StaticResource Pink}"
+                                   PressedColor="{StaticResource LightPink}"
+                                   Command="{Binding Path=BindingContext.FollowProcesCommand, Source={x:Reference page}}" />-->
+                </Grid>
+
+                <!--<Components:ProfileTopStackLayout x:Name="ptsl" UserName="{Binding UserName}" />-->
+                <!--<StackLayout>
+          <Components:CustomSegmentedControl IsVisible="{Binding Source={x:Reference page}, Path=IsInitialized, Converter={StaticResource not}}" IsSelectedCheck="True" Margin="10" TintColor="{StaticResource PrimaryText}" ValueChanged="Handle_ValueChanged">
+            <Components:CustomSegmentedControl.Children>
+              <Components:SegmentedControlOption Text="{i18n:Translate Statistics}" />
+            </Components:CustomSegmentedControl.Children>
+          </Components:CustomSegmentedControl>
+        </StackLayout>-->
+            </Components:NonPersistentSelectedItemListView.Header>
+            <Components:NonPersistentSelectedItemListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Components:PostCardFactoryView NavigationService="{Binding Path=BindingContext.NavigationService, Source={x:Reference page}}" />
+                    </ViewCell>
+                </DataTemplate>
+            </Components:NonPersistentSelectedItemListView.ItemTemplate>
+        </Components:NonPersistentSelectedItemListView>
+    </ContentPage.Content>
+</ContentPage>

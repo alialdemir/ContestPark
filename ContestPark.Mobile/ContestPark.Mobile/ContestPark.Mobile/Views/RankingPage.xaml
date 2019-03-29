@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Components="clr-namespace:ContestPark.Mobile.Components;assembly=ContestPark.Mobile"
+             xmlns:Converter="clr-namespace:ContestPark.Mobile.Converters;assembly=ContestPark.Mobile"
+             xmlns:i18n="clr-namespace:ContestPark.Mobile;assembly=ContestPark.Mobile"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ContestPark.Mobile.Views.RankingPage"
+             x:Name="page"
+             Title="{Binding Title}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converter:NegativeBooleanConverter x:Key="not" />
+            <Converter:RankConverter x:Key="rank" />
+            <Converter:RankBackgroundColorConverter x:Key="background" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Components:NonPersistentSelectedItemListView x:Name="lstView" InfiniteScroll="{Binding InfiniteScroll}" Style="{StaticResource ListViewHeaderAndFooter}" Footer="{Binding RankEmptyMessage}" IsShowEmptyMessage="{Binding IsShowEmptyMessage}">
+            <Components:NonPersistentSelectedItemListView.HeaderTemplate>
+                <DataTemplate>
+                    <Grid BackgroundColor="{StaticResource White}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="40" />
+                        </Grid.ColumnDefinitions>
+                        <Components:CustomSegmentedControl Grid.Row="0"
+                                                           Grid.ColumnSpan="4"
+                                                           x:Name="SegControl"
+                                                           IsSelectedCheck="False"
+                                                           Margin="10,10,10,0"
+                                                           TintColor="{StaticResource PrimaryText}"
+                                                           ValueChangedCommand="{Binding Path=BindingContext.SegmentValueChangedCommand, Source={x:Reference page}}">
+                            <Components:CustomSegmentedControl.Children>
+                                <Components:SegmentedControlOption Text="{i18n:Translate Global}" />
+                                <Components:SegmentedControlOption Text="{i18n:Translate Following}" />
+                            </Components:CustomSegmentedControl.Children>
+                        </Components:CustomSegmentedControl>
+                        <Label Grid.Row="1" Grid.Column="0" Text="{i18n:Translate Rank}" TextColor="{StaticResource Black}" VerticalOptions="Center" Margin="16,0,0,0" />
+                        <Label Grid.Row="1" Grid.Column="2" Text="{i18n:Translate Name}" TextColor="{StaticResource Black}" VerticalOptions="Center" />
+                        <Label Grid.Row="1" Grid.Column="3" Text="{i18n:Translate Score}" TextColor="{StaticResource Black}" VerticalOptions="Center" />
+                        <Image Grid.Row="2" Grid.ColumnSpan="4" Style="{StaticResource ZigZag}" />
+                    </Grid>
+                </DataTemplate>
+            </Components:NonPersistentSelectedItemListView.HeaderTemplate>
+            <Components:NonPersistentSelectedItemListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Components:RankView Rank="{Binding .,Converter={StaticResource rank}, ConverterParameter={x:Reference lstView}}"
+                                             BackgroundColor="{Binding .,Converter={StaticResource background}, ConverterParameter={x:Reference lstView}}"
+                                             GotoProfilePageCommand="{Binding Path=BindingContext.GotoProfilePageCommand, Source={x:Reference page}}" />
+                    </ViewCell>
+                </DataTemplate>
+            </Components:NonPersistentSelectedItemListView.ItemTemplate>
+            <Components:NonPersistentSelectedItemListView.FooterTemplate>
+                <DataTemplate>
+                    <StackLayout BackgroundColor="{StaticResource White}">
+                        <Label IsVisible="{Binding Source={x:Reference lstView}, Path=IsShowEmptyMessage}" Text="{Binding .}" Style="{StaticResource EmptyModel}" />
+                        <Image Style="{StaticResource ZigZag}" IsVisible="{Binding Source={x:Reference lstView}, Path=IsRefreshing, Converter={StaticResource not}}" />
+                    </StackLayout>
+                </DataTemplate>
+            </Components:NonPersistentSelectedItemListView.FooterTemplate>
+        </Components:NonPersistentSelectedItemListView>
+    </ContentPage.Content>
+</ContentPage>

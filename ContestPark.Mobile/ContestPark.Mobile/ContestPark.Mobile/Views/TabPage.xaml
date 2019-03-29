@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:pages="clr-namespace:ContestPark.Mobile.Views;assembly=ContestPark.Mobile"
+            xmlns:Components="clr-namespace:ContestPark.Mobile.Components;assembly=ContestPark.Mobile"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:plugin="clr-namespace:Plugin.Badge.Abstractions;assembly=Plugin.Badge.Abstractions"
+            x:Class="ContestPark.Mobile.Views.TabPage">
+    <TabbedPage.Children>
+        <!-- CategoriesPage -->
+        <pages:CategoriesPage
+        x:Name="tabCategoriesPage">
+            <pages:CategoriesPage.Icon>
+                <OnPlatform
+                x:TypeArguments="FileImageSource"
+                Android="ic_videogame_asset_black_24dp"
+                iOS="ic_videogame_asset_black_24dp"
+                WinPhone="Assets\ic_videogame_asset_black_24dp.png" />
+            </pages:CategoriesPage.Icon>
+        </pages:CategoriesPage>
+        <!-- ChatAllPage -->
+        <pages:ChatAllPage
+        x:Name="tabChatAllPage"
+            plugin:TabBadge.BadgeText="{Binding BadgeCount}">
+            <pages:ChatAllPage.Icon>
+                <OnPlatform
+                x:TypeArguments="FileImageSource"
+                Android="ic_message_black_24dp"
+                iOS="ic_message_black_24dp"
+                WinPhone="Assets\ic_message_black_24dp.png" />
+            </pages:ChatAllPage.Icon>
+        </pages:ChatAllPage>
+        <!-- NotificationsPage -->
+        <pages:NotificationsPage
+        x:Name="tabNotificationsPage"
+            plugin:TabBadge.BadgeText="{Binding BadgeCount}">
+            <pages:NotificationsPage.Icon>
+                <OnPlatform
+                x:TypeArguments="FileImageSource"
+                Android="ic_notifications_black_24dp"
+                iOS="ic_notifications_black_24dp"
+                WinPhone="Assets\ic_notifications_black_24dp.png" />
+            </pages:NotificationsPage.Icon>
+        </pages:NotificationsPage>
+        <!-- ProfilePage -->
+        <pages:ProfilePage
+        x:Name="tabProfilePage">
+            <pages:ProfilePage.Icon>
+                <OnPlatform
+                x:TypeArguments="FileImageSource"
+                Android="ic_account_circle_black_24dp"
+                iOS="ic_account_circle_black_24dp"
+                WinPhone="Assets\ic_account_circle_black_24dp.png" />
+            </pages:ProfilePage.Icon>
+        </pages:ProfilePage>
+    </TabbedPage.Children>
+</TabbedPage>

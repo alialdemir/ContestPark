@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  contestpark.webapi:
+    image: contestpark.webapi
+    build:
+      context: ./ContestPark.WebApi
+      dockerfile: Dockerfile
+    depends_on:
+      - duel.data
+
+  duel.data:
+    image: redis

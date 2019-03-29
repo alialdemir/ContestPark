@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <color name="colorPrimary">#ffc107</color>
+  <color name="primaryDark">#ffa000</color>
+  <color name="accent">#536dfe</color>
+  <color name="lightPrimary">#FFECB3</color>
+  <color name="textIcon">#212121</color>
+  <color name="primaryText">#212121</color>
+  <color name="secondaryText">#757575</color>
+  <!--Sayfaların arka plan rengi-->
+  <color name="window_background">@drawable/splash</color>
+  <!--Tabbar text colors-->
+  <color name="tabTextColor">#80000000</color>
+  <color name="tabSelectedTextColor">#222</color>
+  <color name="normal">@android:color/transparent</color>
+  <color name="selected">#ffa000</color>
+</resources>

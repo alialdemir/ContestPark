@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Converter="clr-namespace:ContestPark.Mobile.Converters;assembly=ContestPark.Mobile"
+             xmlns:Components="clr-namespace:ContestPark.Mobile.Components;assembly=ContestPark.Mobile"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ContestPark.Mobile.Views.FollowsPage"
+             x:Name="page"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource BackgroundColor}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converter:NegativeBooleanConverter x:Key="not" />
+            <Converter:ButtonTextColorConverter x:Key="textColor" />
+            <Converter:ButtonTextConverter x:Key="text" />
+            <Converter:ButtonImageConverter x:Key="image" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Components:NonPersistentSelectedItemListView x:Name="lstView" Style="{StaticResource ListViewOnlyFooter}" InfiniteScroll="{Binding InfiniteScroll}">
+            <Components:NonPersistentSelectedItemListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid BackgroundColor="{StaticResource White}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="130" />
+                            </Grid.ColumnDefinitions>
+                            <Components:ListItemView
+                              Grid.Row="0"
+                              Grid.Column="0"
+                              Source="{Binding ProfilePicturePath}"
+                              Text="{Binding FullName}"
+                              Detail="{Binding UserName,StringFormat='@{0}'}"
+                              UserName="{Binding UserName}" />
+                            <Button Grid.Row="0"
+                                    Grid.Column="1"
+                                    Command="{Binding Path=BindingContext.FollowOrUnFollowCommand, Source={x:Reference page}}"
+                                    CommandParameter="{Binding FollowUpUserId}"
+                                    BackgroundColor="Transparent"
+                                    VerticalOptions="Center"
+                                    HeightRequest="40"
+                                    TextColor="{Binding IsFollowUpStatus, Converter={StaticResource textColor}}"
+                                    Image="{Binding IsFollowUpStatus, Converter={StaticResource image}}"
+                                    Text="{Binding IsFollowUpStatus, Converter={StaticResource text}}"
+                                    BorderColor="Transparent"
+                                    BorderRadius="0"
+                                    BorderWidth="0.1" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </Components:NonPersistentSelectedItemListView.ItemTemplate>
+            <Components:NonPersistentSelectedItemListView.FooterTemplate>
+                <DataTemplate>
+                    <Image Style="{StaticResource ZigZag}" IsVisible="{Binding Source={x:Reference lstView}, Path=IsRefreshing, Converter={StaticResource not}}" />
+                </DataTemplate>
+            </Components:NonPersistentSelectedItemListView.FooterTemplate>
+        </Components:NonPersistentSelectedItemListView>
+    </ContentPage.Content>
+</ContentPage>
